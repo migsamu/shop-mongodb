@@ -1,6 +1,7 @@
 package org.iesfm.shop.mongo.pojos;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,8 +23,8 @@ public class Order {
     public Order(
             @JsonProperty("id") int id,
             @JsonProperty("clientNif") String clientNif,
-            @JsonProperty("date") double price,
-            @JsonProperty("date") Date date,
+            @JsonProperty("price") double price,
+            @JsonProperty("date") @JsonFormat(pattern = "yyyy/MM/dd") Date date,
             @JsonProperty("items") List<Item> items) {
         this.id = id;
         this.clientNif = clientNif;
