@@ -16,6 +16,7 @@ public class Order {
     private int id;
     private String clientNif;
     private double price;
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date date;
     private List<Item> items;
 
@@ -24,7 +25,7 @@ public class Order {
             @JsonProperty("id") int id,
             @JsonProperty("clientNif") String clientNif,
             @JsonProperty("price") double price,
-            @JsonProperty("date") @JsonFormat(pattern = "yyyy/MM/dd") Date date,
+            @JsonProperty("date") Date date,
             @JsonProperty("items") List<Item> items) {
         this.id = id;
         this.clientNif = clientNif;
